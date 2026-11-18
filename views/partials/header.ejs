@@ -1,0 +1,20 @@
+<% const links = [
+  { page: 'home',     href: '/',         icon: 'fa-solid fa-house',          label: 'Home' },
+  { page: 'about',    href: '/about',    icon: 'fa-solid fa-circle-info',    label: 'About Me' },
+  { page: 'projects', href: '/projects', icon: 'fa-solid fa-clipboard-list', label: 'Projects' },
+  { page: 'contact',  href: '/contact',  icon: 'fa-solid fa-envelope',       label: 'Contact Me' }
+]; %>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Adeoluwa Adegbembo</a>
+    <ul class="navbar-nav ms-auto">
+      <% links.forEach(function(l) { %>
+        <li class="nav-item">
+          <a class="nav-link <%= page === l.page ? 'active' : '' %>"
+             <%- page === l.page ? 'aria-current="page"' : '' %>
+             href="<%= l.href %>"><i class="<%= l.icon %>"></i> <span class="nav-label"><%= l.label %></span></a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</nav>
